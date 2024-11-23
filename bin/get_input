@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Get the day number from the first argument
+DAY_NUMBER=$1
+
+# Check if the day number is provided
+if [ -z "$DAY_NUMBER" ]; then
+  echo "Error: Day number is required as the first argument."
+  exit 1
+fi
+
+# Check if the input file for the given day already exists
+OUTPUT_FILE="inputs/day${DAY_NUMBER}.txt"
+
+if [ -f "$OUTPUT_FILE" ]; then
+  echo "Input file for day $DAY_NUMBER already exists: $OUTPUT_FILE"
+  exit 0
+fi
+
+# URL to fetch data from
+URL="http://adventofcode.com/2023/day/$DAY_NUMBER/input"
+
+COOKIES="session=$(cat .session)"
+
+# Run curl to fetch data and save it to the output file, with the cookies
+curl -b $COOKIES -o $OUTPUT_FILE -L $URL
+
+echo "Data fetched and saved to $OUTPUT_FILE"
