@@ -32,7 +32,7 @@
       "args": [
         "run",
         "-m",
-        "day${input:dayNumber}"
+        "aoc2023_gleam/day${input:dayNumber}"
       ],
       "group": {
         "kind": "build",
@@ -68,7 +68,7 @@
       "id": "dayNumber",
       "type": "promptString",
       "description": "Enter the day number to run",
-      "default": "1"
+      "default": "2"
     }
   ],
 }
