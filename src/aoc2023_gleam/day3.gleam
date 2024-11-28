@@ -49,7 +49,7 @@ fn part1(input: String) -> Int {
     input
     |> parse
 
-  let run = fn(acc, cell) { run(grid, cell, acc) }
+  let run = fn(acc, cell) { run(grid, acc, cell) }
 
   grid
   |> list.fold(Acc(current: #(None, False), res: []), run)
@@ -61,7 +61,7 @@ type Acc {
   Acc(current: #(Option(Int), Bool), res: List(Int))
 }
 
-fn run(grid: Grid, cell: CoordCell, acc: Acc) {
+fn run(grid: Grid, acc: Acc, cell: CoordCell) {
   let #(coord, cell) = cell
   let Acc(current: #(running_number, has_symbol_neighbor), res: res) = acc
 
