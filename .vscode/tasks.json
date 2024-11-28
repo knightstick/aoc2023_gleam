@@ -68,7 +68,7 @@
       "id": "dayNumber",
       "type": "promptString",
       "description": "Enter the day number to run",
-      "default": "2"
+      "default": "3"
     }
   ],
 }
