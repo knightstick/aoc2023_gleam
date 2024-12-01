@@ -1,4 +1,4 @@
-import aoc2023_gleam/shared.{sum}
+import aoc2023_gleam/shared
 import gleam/int
 import gleam/io
 import gleam/list
@@ -39,7 +39,7 @@ fn part1(input: String) {
   |> parse
   |> list.filter(is_possible)
   |> list.map(fn(game) { game.id })
-  |> sum
+  |> int.sum
 }
 
 fn part2(input: String) {
@@ -47,7 +47,7 @@ fn part2(input: String) {
   |> parse
   |> list.map(fewest_cubes)
   |> list.map(power)
-  |> sum
+  |> int.sum
 }
 
 fn parse(input: String) -> List(Game) {
